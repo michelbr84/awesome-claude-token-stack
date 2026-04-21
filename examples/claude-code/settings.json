@@ -1,0 +1,17 @@
+{
+  "_comment": "Example .claude/settings.json for integrating acts with Claude Code. Replace the path in the hook commands with the path to your acts binary or acts.js.",
+  "hooks": {
+    "SessionStart": [
+      {
+        "command": "node /absolute/path/to/awesome-claude-token-stack/packages/cli/dist/bin/acts.js status --json || true"
+      }
+    ],
+    "PostToolUse": [
+      {
+        "_comment": "Optional: compress the output of known-verbose bash commands after the tool runs. See docs/mcp-integration.md for a more advanced setup using the archive.",
+        "matcher": "Bash",
+        "command": "node /absolute/path/to/awesome-claude-token-stack/packages/cli/dist/bin/acts.js compress cmd git status < /dev/null 2>/dev/null || true"
+      }
+    ]
+  }
+}

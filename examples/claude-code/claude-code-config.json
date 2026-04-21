@@ -1,0 +1,14 @@
+{
+  "_comment": "Merge the `mcpServers.acts` block into your Claude Code config (usually ~/.claude/claude_code_config.json). Replace the absolute path with the actual location of your acts-mcp.js.",
+  "mcpServers": {
+    "acts": {
+      "command": "node",
+      "args": [
+        "/absolute/path/to/awesome-claude-token-stack/packages/mcp/dist/bin/acts-mcp.js"
+      ],
+      "env": {
+        "ACTS_DB_PATH": "${workspaceFolder}/.acts/store.db"
+      }
+    }
+  }
+}
