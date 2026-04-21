@@ -1,0 +1,47 @@
+{
+  "name": "@acts/cli",
+  "version": "0.1.0",
+  "description": "Command-line interface for awesome-claude-token-stack.",
+  "license": "MIT",
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "bin": {
+    "acts": "./dist/bin/acts.js"
+  },
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "files": ["dist", "README.md"],
+  "scripts": {
+    "build": "tsc -b",
+    "clean": "tsc -b --clean && rimraf dist",
+    "lint": "eslint src test",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@acts/compress": "workspace:*",
+    "@acts/core": "workspace:*",
+    "@acts/mcp": "workspace:*",
+    "@acts/memory": "workspace:*",
+    "@acts/observe": "workspace:*",
+    "@acts/sandbox": "workspace:*",
+    "commander": "^12.1.0"
+  },
+  "devDependencies": {
+    "@types/better-sqlite3": "^7.6.11",
+    "@types/node": "^20.14.10",
+    "better-sqlite3": "^11.3.0",
+    "rimraf": "^6.0.1",
+    "typescript": "^5.6.2"
+  },
+  "engines": {
+    "node": ">=20.0.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}
