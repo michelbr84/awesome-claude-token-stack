@@ -1,0 +1,73 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - "v*.*.*"
+
+jobs:
+  release:
+    name: Create GitHub Release
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 9.12.3
+          run_install: false
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: pnpm
+
+      - name: Install dependencies
+        run: pnpm install --no-frozen-lockfile
+
+      - name: Build
+        run: pnpm run build
+
+      - name: Test
+        run: pnpm run test
+
+      - name: Pack tarballs
+        run: |
+          mkdir -p dist-artifacts
+          for pkg in packages/*/; do
+            (cd "$pkg" && pnpm pack --pack-destination ../../dist-artifacts || true)
+          done
+          ls -la dist-artifacts
+
+      - name: Generate changelog fragment
+        id: changelog
+        run: |
+          TAG="${GITHUB_REF#refs/tags/}"
+          echo "tag=$TAG" >> "$GITHUB_OUTPUT"
+          PREV=$(git tag --sort=-v:refname | grep -v "^$TAG$" | head -n 1)
+          if [ -z "$PREV" ]; then
+            RANGE="$TAG"
+          else
+            RANGE="$PREV..$TAG"
+          fi
+          {
+            echo 'body<<CHANGELOG_EOF'
+            echo "## $TAG"
+            echo ""
+            git log --pretty="- %s (%h)" "$RANGE"
+            echo CHANGELOG_EOF
+          } >> "$GITHUB_OUTPUT"
+
+      - name: Create Release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: ${{ steps.changelog.outputs.tag }}
+          name: ${{ steps.changelog.outputs.tag }}
+          body: ${{ steps.changelog.outputs.body }}
+          files: dist-artifacts/*.tgz
+          generate_release_notes: false
+          fail_on_unmatched_files: false
