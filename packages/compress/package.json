@@ -1,0 +1,40 @@
+{
+  "name": "@acts/compress",
+  "version": "0.1.0",
+  "description": "Output compression for AI coding agents — CLI output filters, CLAUDE.md optimizer, and terse-mode skill.",
+  "license": "MIT",
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    },
+    "./filters": {
+      "types": "./dist/filters/index.d.ts",
+      "import": "./dist/filters/index.js"
+    }
+  },
+  "files": ["dist", "skills", "README.md"],
+  "scripts": {
+    "build": "tsc -b",
+    "clean": "tsc -b --clean && rimraf dist",
+    "lint": "eslint src test",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@acts/core": "workspace:*"
+  },
+  "devDependencies": {
+    "@types/node": "^20.14.10",
+    "rimraf": "^6.0.1",
+    "typescript": "^5.6.2"
+  },
+  "engines": {
+    "node": ">=20.0.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}
