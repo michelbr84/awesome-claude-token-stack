@@ -1,0 +1,12 @@
+{
+  "files": [],
+  "references": [
+    { "path": "packages/core" },
+    { "path": "packages/compress" },
+    { "path": "packages/sandbox" },
+    { "path": "packages/memory" },
+    { "path": "packages/observe" },
+    { "path": "packages/mcp" },
+    { "path": "packages/cli" }
+  ]
+}

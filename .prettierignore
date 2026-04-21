@@ -1,0 +1,9 @@
+dist/
+coverage/
+node_modules/
+packages/*/dist/
+packages/*/coverage/
+**/*.tsbuildinfo
+pnpm-lock.yaml
+upstream-research/
+.claude/

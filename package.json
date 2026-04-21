@@ -1,0 +1,59 @@
+{
+  "name": "awesome-claude-token-stack",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Local-first, MIT-licensed toolkit for AI coding agents — compresses, sandboxes, remembers, and measures context token usage.",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/michelbr84/awesome-claude-token-stack.git"
+  },
+  "homepage": "https://github.com/michelbr84/awesome-claude-token-stack",
+  "bugs": {
+    "url": "https://github.com/michelbr84/awesome-claude-token-stack/issues"
+  },
+  "license": "MIT",
+  "type": "module",
+  "packageManager": "pnpm@9.12.3",
+  "engines": {
+    "node": ">=20.0.0",
+    "pnpm": ">=9.0.0"
+  },
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "build": "tsc -b",
+    "clean": "tsc -b --clean && rimraf \"packages/*/dist\" \"packages/*/tsconfig.tsbuildinfo\"",
+    "lint": "eslint \"packages/*/src/**/*.ts\" \"packages/*/test/**/*.ts\"",
+    "lint:fix": "eslint \"packages/*/src/**/*.ts\" \"packages/*/test/**/*.ts\" --fix",
+    "format": "prettier --write \"packages/*/src/**/*.{ts,json}\" \"packages/*/test/**/*.ts\" \"*.{json,md,yml,yaml}\"",
+    "format:check": "prettier --check \"packages/*/src/**/*.{ts,json}\" \"packages/*/test/**/*.ts\" \"*.{json,md,yml,yaml}\"",
+    "typecheck": "tsc -b --pretty",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:coverage": "vitest run --coverage",
+    "cli": "node packages/cli/dist/bin/acts.js"
+  },
+  "devDependencies": {
+    "@types/node": "^20.14.10",
+    "@typescript-eslint/eslint-plugin": "^8.7.0",
+    "@typescript-eslint/parser": "^8.7.0",
+    "@vitest/coverage-v8": "^2.1.1",
+    "eslint": "^8.57.1",
+    "prettier": "^3.3.3",
+    "rimraf": "^6.0.1",
+    "typescript": "^5.6.2",
+    "vitest": "^2.1.1"
+  },
+  "keywords": [
+    "claude",
+    "claude-code",
+    "mcp",
+    "ai-coding",
+    "token-optimization",
+    "context-engineering",
+    "local-first",
+    "sqlite",
+    "fts5"
+  ]
+}

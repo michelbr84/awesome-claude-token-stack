@@ -1,0 +1,84 @@
+# ---------- secrets ----------
+.env
+.env.local
+.env.*.local
+
+# ---------- node / pnpm / bun ----------
+node_modules/
+.pnpm-store/
+npm-debug.log*
+pnpm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.npm
+# Bun lockfile — dev-only; CI uses pnpm for reproducibility.
+bun.lock
+bun.lockb
+
+# ---------- typescript ----------
+*.tsbuildinfo
+packages/*/tsconfig.tsbuildinfo
+
+# ---------- build output ----------
+dist/
+build/
+out/
+coverage/
+packages/*/dist/
+packages/*/coverage/
+
+# ---------- acts runtime store ----------
+.acts/
+!packages/*/test/fixtures/.acts/
+
+# ---------- python (upstream research / scripts) ----------
+__pycache__/
+*.py[cod]
+*.pyo
+*.egg
+*.egg-info/
+.venv/
+venv/
+.pytest_cache/
+.coverage
+htmlcov/
+
+# ---------- os ----------
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+.Spotlight-V7
+.Trashes
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# ---------- editors ----------
+.vscode/settings.json
+.idea/
+*.swp
+*.swo
+*~
+
+# ---------- logs ----------
+*.log
+
+# ---------- ClaudeMaxPower runtime (already ignored by harness) ----------
+.estado*.md
+.claude/audit.log
+.dream.lock
+.dream-state.json
+docs/dependency-graph.svg
+docs/dependency-graph.dot
+batch-results.json
+.worktrees/
+worktrees/
+/tmp/cmp-*
+cmp-scratch-*/
+
+# ---------- upstream research ----------
+# Reference-only clones of the 10 projects analyzed in PLAN.md §4. Each has
+# its own license; we do not redistribute them. Clone them separately if you
+# need the source.
+upstream-research/
