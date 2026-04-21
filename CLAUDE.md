@@ -32,16 +32,16 @@ system design, and `docs/roadmap.md` for what lands in v0.2 / v0.3.
 
 PLAN.md §23 lists eight gating questions. All eight are resolved:
 
-| # | Question | Decision |
-|---|---|---|
-| 1 | Project name | `awesome-claude-token-stack`, scope `@acts/*` |
-| 2 | Languages | **TypeScript-only** for v0.1; Rust deferred to v0.3; Python deferred to v0.2 (graph layer) |
-| 3 | Tool count | ≤ 20 (enforced at compile time in `@acts/mcp`) |
-| 4 | License | MIT |
-| 5 | MVP scope | compression + sandbox + observability **plus** memory |
-| 6 | Naming | `@acts/*`, `.acts/` store, `acts` CLI |
-| 7 | Cloud vector DB | local-first only in v0.1; cloud backends deferred to v0.3 as opt-in |
-| 8 | Monorepo tool | pnpm workspaces |
+| #   | Question        | Decision                                                                                   |
+| --- | --------------- | ------------------------------------------------------------------------------------------ |
+| 1   | Project name    | `awesome-claude-token-stack`, scope `@acts/*`                                              |
+| 2   | Languages       | **TypeScript-only** for v0.1; Rust deferred to v0.3; Python deferred to v0.2 (graph layer) |
+| 3   | Tool count      | ≤ 20 (enforced at compile time in `@acts/mcp`)                                             |
+| 4   | License         | MIT                                                                                        |
+| 5   | MVP scope       | compression + sandbox + observability **plus** memory                                      |
+| 6   | Naming          | `@acts/*`, `.acts/` store, `acts` CLI                                                      |
+| 7   | Cloud vector DB | local-first only in v0.1; cloud backends deferred to v0.3 as opt-in                        |
+| 8   | Monorepo tool   | pnpm workspaces                                                                            |
 
 ## The product
 
